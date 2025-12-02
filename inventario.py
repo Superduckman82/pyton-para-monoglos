@@ -16,21 +16,28 @@ inventario = {
 while True:
 
 
-    print("que quieres hacer?")
+    print("\nque quieres hacer?")
     print("1. ver el inventario")
     print("2. modificar algo")
     print("3. salir. ")
 
+    try:
+        eleccion = int(input())
+    except ValueError:
+        print(f"\nmongolo, eso no es un numero")
+        continue
 
-    elección = int(input())
-    if elección == 1: 
+    print("\n")
+    if eleccion == 1: 
         for clave, datos in inventario.items():
             objeto = datos["objeto"]
             cantidad = datos["cantidad"]
             precio = datos["precio"]
             print(f"hay {cantidad} de {objeto} a {precio}")
-    elif elección == 2:
-                cambio1 = input("que quiere cambiar, las patatas o las manzanas? ")
+        input("\npulsa enter para continuar")
+
+    elif eleccion == 2:
+        cambio1 = input("que quiere cambiar, las patatas o las manzanas? ")
         if cambio1 == "patatas":
             print("precio o cantidad? ")
             precant = input("")
@@ -48,8 +55,9 @@ while True:
                 inventario["elemento2"]["precio"] = augprec
             elif precant == "cantidad":
                 augcant = int(input("a cuanto lo quiere augmentar? "))
-                 inventario["elemento2"]["cantidad"] = augcant
-    elif elección == 3:
+                inventario["elemento2"]["cantidad"] = augcant
+    elif eleccion == 3:
         print("vayase usté a cagar") 
         break
 
+    
